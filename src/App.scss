@@ -1,0 +1,500 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap');
+*{
+  margin:0px;
+  padding:0px;
+}
+Body{
+  background: #f7f7f7;
+  color:#080808;
+  font-family: "Lato", "Open Sans", sans-serif; 
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.imgSlideBoxDT{
+  display:flex;
+  align-items: flex-end;
+  flex-direction: row;
+  vertical-align: baseline;
+  margin:0px;
+  width:55%;
+  user-select: none;
+  .imgSlide{
+    display:flex;
+    width:100%;
+    height:65vh;
+    .img{
+      object-fit:cover;
+      object-position: top;
+      min-width:100%;
+      min-height: 65vh;
+    }
+    .closed{
+      display:none;
+    }
+    .slideClose{
+      animation: close 1s ease;
+      animation-fill-mode: forwards;
+    }
+    @keyframes close {
+      from{
+        min-width: 100%;
+        max-height:65vh;
+      }
+      to{
+        min-width:0;
+        max-height:65vh;
+        display:none;
+      }
+    }
+    .slideOpen{
+      animation: open 1s ease;
+      animation-fill-mode:forwards;
+    }
+    @keyframes open {
+      from{
+        min-width: 0;
+        max-height:65vh;
+      }
+      to{
+        min-width:100%;
+        max-height:65vh;
+      }
+    }
+  }
+  .arrowBox{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    .direction{
+      z-index:1;
+      display:flex;
+      font-size:2rem;
+      color:#f7f7f7;
+      background-color: #080808;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      &:hover{
+        background-color: #808080;
+        color: #080808;
+        cursor:pointer;
+      }
+    }
+  }
+}
+
+
+.top{
+  display:flex;
+  height:65vh;
+  flex-direction:row;
+  .textSection{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    
+    .center{
+      width:50%;
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items:flex-start;
+      text-align:left;
+      .intro{
+        width:100%;
+        margin-bottom:2rem;
+      }
+      .introPara{
+        color:#929292;
+        line-height:1.5rem;
+      }
+      .shopLink{
+        width:100%;
+        text-decoration: none;
+        margin-top:2rem;
+        font-size:1.2rem;
+        color: #080808;
+        letter-spacing: 0.5rem;
+        transition: letter-spacing 0.5s;
+        &:hover{
+          letter-spacing:1rem;
+        }
+      }
+    }
+  }
+}
+
+
+.navBarDt{
+  position:fixed;
+  display:flex;
+  align-items: center;
+  flex-direction: row;
+  color:#f7f7f7;
+  top:5vh;
+  left:2vw;
+  user-select: none;
+  .navheader{
+    height:2rem;
+    letter-spacing: 0.5rem;
+    margin-right:4rem;
+  }
+  .links{
+    height:2rem;
+    text-decoration: none;
+    color:#f7f7f7;
+    margin-right:4rem;
+    margin-bottom:0px;
+    &:hover{
+      position:relative;
+      animation: hop 0.5s;
+      animation-timing-function: steps(25);
+      animation-iteration-count: infinite;
+    }
+    @keyframes hop {
+      0%{
+        bottom:0;
+      }
+      25%{
+        bottom:0.3rem;
+      }
+      50%{
+        bottom:0.4rem;
+      }
+      75%{
+        bottom:0.3rem;
+      }
+      100%{
+        bottom:0;
+      }
+    }
+  }
+}
+
+.menubar{
+  z-index:2;
+  position:sticky;
+  margin: 2rem;
+  margin-right:3rem;
+  font-size: 2rem;
+  &:active{
+    animation: round 0.25s ease;
+  }
+  @keyframes round {
+    from{
+      transform: rotate(0deg)
+    }
+    to{
+      transform: rotate(360deg)
+    }
+  }
+}
+
+.bottom{
+  height:35vh;
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items: center;
+  .leftPic{
+    height:35vh;
+  }
+  .rightPic{
+    height:35vh;
+  }
+  .aboutBox{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    width:40%;
+    .container{
+      width:80%;
+      line-height:1.5rem;
+      .aboutTitle{
+        letter-spacing: 0.3rem;
+        margin-bottom:1rem;
+      }
+      .aboutText{
+        color:#929292;
+      }
+      .signature{
+        position:relative;
+        top:1rem;
+        right:1rem;
+        font-size:0.6rem;
+        width:100%;
+        text-align:right;
+        .myLink{
+          font-size:0.75rem;
+          text-decoration: none;
+          color:#080808;
+          &:hover{
+            color:#9a2ab1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 3){
+  Body{
+    height: 100%;
+    flex-direction:column;
+  }
+
+  .boxMobile{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin:0px;
+    width:100%;
+    .imgSlideMobile{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      max-height:100vw;
+      
+      .imgMobile{
+        object-fit:cover;
+        object-position: top;
+      }
+      .closed{
+        display:none;
+      }
+      .slideClose{
+        animation: closeM 1s ease;
+        animation-fill-mode: forwards;
+      }
+      @keyframes closeM {
+        from{
+          min-width: 100%;
+          min-height: 100vw;
+        }
+        to{
+          min-width:0;
+          min-height: 100vw;
+          display:none;
+        }
+      }
+      .slideOpen{
+        animation: openM 1s ease;
+        animation-fill-mode:forwards;
+      }
+      @keyframes openM {
+        from{
+          min-width: 0;
+          min-height: 100vw;
+        }
+        to{
+          min-width:100%;
+          min-height: 100vw;
+        }
+      }
+    }
+    
+    .mobileBtn{
+      position:relative;
+      bottom:4rem;
+      display: flex;
+      flex-direction:row;
+      width:100%;
+      justify-content: flex-end;
+    }
+    .directionMobile{
+      z-index: 1;
+      display:flex;
+      font-size:2rem;
+      color:#f7f7f7;
+      background-color: #080808c4;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      &:active{
+        background-color: #808080;
+        color: #080808;
+        cursor:pointer;
+      }
+    }
+  }
+  
+  .top{
+    height:100%;
+    flex-direction:column;
+    .textSection{
+      display:flex;
+      justify-content: center;
+      align-items:center;
+      .center{
+        width:85%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:flex-start;
+        text-align:left;
+        .shopLink{
+          margin-bottom:2rem;
+          &:hover{
+            letter-spacing:0.5rem;
+          }
+          &:active{
+            letter-spacing:1rem;
+          }
+        }
+      }
+    }
+  }
+  
+
+  .navBarMobile{
+    position:sticky;
+    top:2.5rem;
+    height: 0;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    color:#f7f7f7;
+    .linksM{
+      z-index: 2;
+      position:relative;
+      text-decoration: none;
+      color:#080808;
+      opacity:0;
+      margin-right: 2rem;
+      font-size:1rem;
+      animation: linkdrop 0.5s linear;
+      animation-fill-mode: forwards;
+      animation-delay:0.5s;
+      &:active{
+        color:#3d3d3d;
+      }
+    }
+    @keyframes linkdrop {
+      from{
+        bottom:1.5rem;
+        opacity:0;
+      }
+      50%{
+        bottom:0.75rem;
+        opacity:0.5;
+      }
+      to{
+        bottom:0;
+        opacity:1;
+      }
+      
+    }
+  }
+  .activeBox{
+    z-index: 2;
+    position:absolute;
+    background: #f7f7f7;
+    height:0;
+    width:100vw;
+    top:0;
+    justify-content: center;
+    animation: topbar 0.5s linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes topbar {
+    from{
+      height:0;
+    }
+    to{
+      height:5rem;
+    }
+  }
+  .linkBox{
+    display:none;
+  }
+  .iconColor{
+    color: #080808;
+  }
+  .background{
+    z-index: 1;
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    background:#b1b1b1;
+    opacity:0.5;
+    width:100vw;
+    height:100vh;
+    animation:back 0.5s linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes back {
+    from{
+      top:0;
+      height: 100vh;
+    }
+    to{
+      top:5rem;
+      height: calc(100vh - 5rem);
+    }
+  }
+  .menubar{
+    z-index:2;
+    position:sticky;
+    margin: 2rem;
+    margin-right:3rem;
+    font-size: 2rem;
+    &:active{
+      animation: round 0.25s ease;
+    }
+    @keyframes round {
+      from{
+        transform: rotate(0deg)
+      }
+      to{
+        transform: rotate(360deg)
+      }
+    }
+  }
+  
+  .bottom{
+    height:100%;
+    width:100vw;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    .leftPic{
+      height:100%;
+      width:100vw;
+    }
+    .rightPic{
+      height:100%;
+      width:100vw;
+    }
+    .aboutBox{
+      width:100%;
+      .container{
+        width:85%;
+        margin-bottom: 3rem;
+        margin-top:2rem;
+        .signature{
+          .myLink{
+            &:hover{
+              color:#080808;
+            }
+            &:active{
+              color:#9a2ab1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
